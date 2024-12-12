@@ -70,8 +70,8 @@ def listar_antiguedades():
     sql = '''
         SELECT A.ID, A.Articulo, A.Precio, A.Disponibilidad, A.Ingreso, C.Categoria, S.Sucursal
         FROM Antiguedades A
-        JOIN Categorias C ON A.CategoriaID = C.ID
-        JOIN Sucursales S ON A.SucursalID = S.ID;
+        LEFT JOIN Categorias C ON A.CategoriaID = C.ID
+        LEFT JOIN Sucursales S ON A.SucursalID = S.ID;
     '''
     try:
         conn.cursor.execute(sql)
